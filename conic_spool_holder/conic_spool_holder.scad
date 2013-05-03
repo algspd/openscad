@@ -1,9 +1,11 @@
+rotate([180,0,0]){
 difference(){
- cylinder(h=40,r1=40/2,r2=12/2,center=true);
+ cylinder(h=35,r1=40/2,r2=20/2,center=true);
  union(){
   cylinder(h=1000,r=9/2,center=true);
-  translate([0,0,-(40/2-8/2)]){
+  translate([0,0,-(35/2-8/2)]){
    cylinder(h=8,r=22/2,center=true);
   }
  }
+}
 }
