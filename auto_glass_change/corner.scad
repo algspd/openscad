@@ -1,7 +1,5 @@
 module glass_limits(){
  translate([-9,-11-22,0])cube([18,22,55]);
-// translate([-9,-11-22,0])cube([18,3,100]);
-// translate([-9,-11-22,100])cube([18,44,1]);
 
  translate([-9,11,0])cube([18,22,55]);
 
