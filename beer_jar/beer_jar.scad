@@ -1,6 +1,6 @@
 pi = 3.14159;
-capacity = 0.0005; // cubic meters
-heightp = 0.17;   // meters
+capacity = 0.0006; // cubic meters
+heightp = 0.16;   // meters
 radiousp = sqrt(capacity/(heightp*pi)); //meters
 wall_tick=3;
 
@@ -31,22 +31,23 @@ module exterior(h,r,t){
 }
 
 module handle(h,r,t){
-  translate([0,0,10]){
-    rotate([45,0,0])
-    cylinder(r=t*2,h=100);
+  translate([0,0,-5]){
+
+    translate([0,-sin(45)*100,sin(45)*100])
+    rotate([45+180,0,0])
+    cylinder(r=t*2,h=sin(45)*100);
+
+
     translate([0,-sin(45)*100,sin(45)*100])
     sphere(t*2);
     translate([0,-sin(45)*100,sin(45)*100])
-    cylinder(r=t*2,h=80);
+    cylinder(r=t*2,h=60);
 
-    difference(){
-      translate([0,-sin(45)*100,sin(45)*100+80])
-      rotate([-90,0,0])
-      cylinder(r=t*2,h=sin(45)*100-r-1);
-      translate([-10,-sin(45)*100,sin(45)*100+80-10])cube([20,80,10]);
-    }
-    translate([-t*2,-sin(45)*100,sin(45)*100+80-4])cube([t*2*2,sin(45)*100-r-1,4]);
-    translate([0,-sin(45)*100,sin(45)*100+80]) sphere(t*2);
+    translate([0,-sin(45)*100,sin(45)*100+60])
+    rotate([-90,0,0])
+    cylinder(r=t*2,h=sin(45)*100-r-1);
+    translate([-t*2,-sin(45)*100,sin(45)*100+60-4])cube([t*2*2,sin(45)*100-r-1,4]);
+    translate([0,-sin(45)*100,sin(45)*100+60]) sphere(t*2);
   }
 }
 
@@ -54,7 +55,10 @@ module handle(h,r,t){
 
 
 difference(){
+union(){
 exterior(height,radious,wall_tick);
+handle(height,radious,wall_tick);
+}
+
 interior(height,radious);
 };
-handle(height,radious,wall_tick);
