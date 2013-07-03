@@ -25,20 +25,16 @@ difference(){
 union(){
 
 // rod suport
-    color("red") {
 	translate([1, -40, 5])
-	    cube([18, 80, 20]);
+	    cube([18, 80, 16]);
       translate([1, -5, -40])
           cube([18, 10, 60]);
-    }
 
 // rod suport back
-    color("red") {
 	translate([135, -40, -3])
 	    cube([18, 80, 20]);
       translate([135, -5, -40])
           cube([18, 10, 40]);
-    }
 
     difference() {
 
@@ -107,8 +103,15 @@ union(){
 }
 }
 
+union(){
 translate([-1,-100,-75])
 cube([2000,2000,50]);
+
+// Motor wiring holes
+translate([-1,-20,-20]) cube([20,15,17]);
+translate([-1,5,-20]) cube([20,15,17]);
+
+}
 
 }
 translate([0,-23,-25])
@@ -117,8 +120,6 @@ cube([155,46,2]);
 
 
 
-
-    
     wings_socket();
     nose();
   
