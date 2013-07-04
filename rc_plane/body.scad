@@ -1,7 +1,6 @@
 use <wings.scad>;
 use <nose.scad>;
-use <nose.scad>;
-use <cabin_cover.scad>;
+
 
 difference(){
 union(){

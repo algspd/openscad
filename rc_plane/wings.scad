@@ -1,6 +1,7 @@
 use <left_wing.scad>;
 use <right_wing.scad>;
 use <nose.scad>;
+use <cabin_cover.scad>;
 
 
 // wings 
@@ -8,10 +9,10 @@ dihedral_angle = 10;
 
 module both_wings()
 {
-    translate([0, 10, 0])
+    translate([2, 10, 0])
 	rotate([-dihedral_angle / 2, 0, 0])
 	left_wing();
-    translate([0, -10, 0])
+    translate([2, -10, 0])
 	rotate([dihedral_angle / 2, 0, 0])
 	right_wing();
 }
@@ -24,17 +25,63 @@ difference(){
 difference(){
 union(){
 
-// rod suport
-	translate([1, -40, 5])
-	    cube([18, 80, 16]);
-      translate([1, -5, -40])
-          cube([18, 10, 60]);
+// rod suport front (with cover screw holes)
+    difference(){
+    union(){
+	translate([1, -40, 7])
+	    cube([18, 80, 17]);
+      translate([1, -3/2, -40])
+          cube([18, 3, 60]);
+    }
+    union(){
+	translate([1, -46/2, 18])
+	    cube([19, 46, 17]);
+    }
+    }
 
-// rod suport back
-	translate([135, -40, -3])
-	    cube([18, 80, 20]);
-      translate([135, -5, -40])
-          cube([18, 10, 40]);
+difference(){
+union(){
+// rod suport back (with cover screw holes)
+	translate([135, -40, 1])
+	    cube([18, 80, 23]);
+      translate([136, -3/2, -40])
+          cube([18, 3, 48]);
+    }
+    union(){
+
+	translate([134, -46/2, 12])
+	    cube([19, 46, 30]);
+
+    }
+    }
+
+union(){
+  // Left cover support
+  difference(){
+  translate([0,60/2-10,14])
+  cube([155,10,10]);
+
+  translate([-1,60/2-10-20-6,13])
+  rotate([-55,0,0])
+  cube([157,30,30]);
+  }
+  // Right cover support
+  mirror([0,1,0]){
+  difference(){
+  translate([0,60/2-10,14])
+  cube([155,10,10]);
+
+  union(){
+    translate([-1,60/2-10-20-6,13])
+    rotate([-55,0,0])
+    cube([157,30,30]);
+  }
+  }
+}
+
+
+}
+
 
     difference() {
 
@@ -94,10 +141,10 @@ union(){
 	rotate([-dihedral_angle / 2, 0, 0])
 	cube([200, 200, 40]);
 
-    translate([0, 10, 0])
+    translate([2, 10, 0])
 	rotate([-dihedral_angle / 2, 0, 0])
 	rods_left_wing();
-    translate([0, -10, 0])
+    translate([2, -10, 0])
 	rotate([dihedral_angle / 2, 0, 0])
 	rods_right_wing();
 }
@@ -111,11 +158,15 @@ cube([2000,2000,50]);
 translate([-1,-20,-20]) cube([20,15,17]);
 translate([-1,5,-20]) cube([20,15,17]);
 
+// Cover screw holes
+cover_holes();
+
 }
 
 }
 translate([0,-23,-25])
 cube([155,46,2]);
+
 }
 
 
