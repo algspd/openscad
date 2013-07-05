@@ -1,7 +1,7 @@
 $fn=20;
 use <wings.scad>
 use <nose.scad>;
-use <cabin_cover.scad>;
+use <cover.scad>;
 
 
 module boxing(){
