@@ -12,13 +12,13 @@ translate([0,-52,0]){
 // Rods
 translate([0,50,0])
 rotate([90,0,0])
-translate([12,11,-0.1])
-cylinder(r=8/2,h=550);
+translate([12,11,14])
+cylinder(r=8/2,h=540);
 
 translate([0,50,0])
 rotate([90,0,0])
-translate([146,5,-0.1])
-cylinder(r=6/2,h=550);
+translate([146,5,14])
+cylinder(r=6/2,h=540);
 
 }
 }
