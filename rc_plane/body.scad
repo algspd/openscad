@@ -2,12 +2,13 @@ $fn=20;
 use <wings.scad>
 use <nose.scad>;
 use <cover.scad>;
+use <tail.scad>;
 
 
 module boxing(){
       difference() {
         // Down cylinder
-        rotate([0, 90, 0]) cylinder(r = 70 / 2, h = 155,$fn=100);
+        rotate([0, 90, 0]) cylinder(r = 70 / 2, h = 155);
         union () {
           // Remove top
           translate([-10,-100,25]) cube([200,200,200]);
@@ -102,19 +103,42 @@ module body(){
         cover_supports();
         front_back_covers();
         bottom_plate();
+        tail_rod_support();
+        tail_rod_cover();
       }
       union () {
         motor_wiring_holes();
         cover_holes();
         outer_body_cuts();
         nose_holes();
+        tail_rod();
+        tail_rod_screws();
       }
     }
   }
 
+module tail_rod_screws(){
+  translate([122, -7, -24]) cylinder(r=2,h=22);
+  mirror([0,1,0])translate([122, -7, -24]) cylinder(r=2,h=22);
+
+  translate([129, -7, -24]) cylinder(r=2,h=22);
+  mirror([0,1,0])translate([129, -7, -24]) cylinder(r=2,h=22);
+}
+
+module tail_rod_support(){
+    translate([135, -10, -24]) cube([18, 20, 20]);
+    translate([135-18, -10, -24]) cube([18, 20, 10]);
+}
+
+module tail_rod_cover(){
+    translate([135-18, -10, -14+2]) cube([16, 20, 8]);
+}
+
+// FIXME <--------------------------------------------------------- FIXME
+// Faltan las tuercas del tail_rod_cover, tienen que ir empotradas en la parte de abajo
 
 
   body();
   nose();
-  cover();
-  both_wings();
+  //cover();
+  //both_wings();
