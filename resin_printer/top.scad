@@ -16,15 +16,15 @@ union(){
 }
 
 union(){
-  translate([0,30,0])cylinder(r=4,h=150);
-  translate([0,-30,0])cylinder(r=4,h=150);
+  translate([0,30,0])cylinder(r=4.3,h=150);
+  translate([0,-30,0])cylinder(r=4.3,h=150);
 
   // hueco perfil
   translate([48/2+10,0,0])cube([20,20,25],center=true);
   // tornillos perfil
   translate([48/2+10,0,0])rotate([90,0,0])cylinder(r=2.5,h=100,center=true);
 
-  translate([0,0,0])cylinder(r=3.5,h=150);
+  translate([0,0,-30])cylinder(r=3.5,h=250);
 
 }
 }

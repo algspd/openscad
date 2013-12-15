@@ -1,7 +1,7 @@
 include<resina_carriage.scad>;
 
 module un_agujero(){
-  translate([31/2,31/2,-10])cylinder(r=3.5/2,h=100,center=true);
+  translate([31/2,31/2,-10])cylinder(r=4.2/2,h=100,center=true);
 }
 
 module agujeros_nema(){
@@ -30,14 +30,14 @@ union(){
 }
 
 union(){
-  translate([0,30,0])cylinder(r=4,h=150);
-  translate([0,-30,0])cylinder(r=4,h=150);
+  translate([0,30,0])cylinder(r=4.3,h=150);
+  translate([0,-30,0])cylinder(r=4.3,h=150);
   translate([0,0,-8])cube([42.5,42.5,60],center=true);
 
   agujeros_nema();
 
   // agujero_cables
-  translate([-20,0,-24])cube([20,20,7],center=true);
+  translate([-20,0,-24])cube([20,20,20],center=true);
 
   // hueco perfil
   translate([48/2+10,0,0])cube([20,20,50],center=true);
