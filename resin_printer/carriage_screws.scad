@@ -11,7 +11,7 @@ module ala(){
 
 module tapas(){
   difference(){
-    translate([0,-70+10.5-1,0])tapa();
+    translate([0,-70+12-1,0])tapa();
     mirror([0,1,0])translate([-20/2-9/2+3,24.75-1.5+7,65/2])cube([10,8,65],center=true);
   }
   translate([9,35-4.5,65/2])cube([2,4,65],center=true);
@@ -37,8 +37,14 @@ difference(){
 
   union(){
     // Screw holes
-    translate([-13.5,100,50])rotate([90,0,0])cylinder(r=2.3,h=200);
-    translate([-13.5,100,15])rotate([90,0,0])cylinder(r=2.3,h=200);
+    translate([-13.5,100,50])rotate([90,0,0])cylinder(r=2.5,h=200);
+    translate([-13.5,100,15])rotate([90,0,0])cylinder(r=2.5,h=200);
+
+    // Fixing crew holes
+    translate([-10,14,10])rotate([0,90,0])cylinder(r=2.5,h=200);
+    mirror([0,1,0])translate([-10,14,10])rotate([0,90,0])cylinder(r=2.5,h=200);
+    translate([-10,14,30])rotate([0,90,0])cylinder(r=2.5,h=200);
+    mirror([0,1,0])translate([-10,14,30])rotate([0,90,0])cylinder(r=2.5,h=200);
 
     // Remove bearing registers
     translate([0,30,0])cylinder(r=16/2,h=10,center=true);

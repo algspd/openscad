@@ -1,7 +1,7 @@
-include<resina_carriage.scad>;
+//include <resina_carriage.scad>;
 
 module un_agujero(){
-  translate([31/2,31/2,-10])cylinder(r=4.2/2,h=100,center=true);
+  translate([31/2,31/2,-10])cylinder(r=4.3/2,h=100,center=true);
 }
 
 module agujeros_nema(){
@@ -19,20 +19,19 @@ union(){
   cube([48,48,50],center=true);
   
   // Registros varillas lisas
-  translate([17.5/2,0,0])cube([16+17.5,80,50],center=true);
-
-  // Base
-  //translate([0,0,-25])cube([60,90,1.5],center=true);
+  cube([20,60,50],center=true);
+  translate([0,40-10,0])cylinder(r=10,h=50,center=true);
+  translate([0,-40+10,0])cylinder(r=10,h=50,center=true);
 
   // Registro perfil alu
-  translate([48/2+10,0,0])cube([20,30,50],center=true);
+  translate([48/2+10,0,0])cube([20,34,50],center=true);
 
 }
 
 union(){
   translate([0,30,0])cylinder(r=4.3,h=150);
   translate([0,-30,0])cylinder(r=4.3,h=150);
-  translate([0,0,-8])cube([42.5,42.5,60],center=true);
+  translate([0,0,-9])cube([42.5,42.5,60],center=true);
 
   agujeros_nema();
 
