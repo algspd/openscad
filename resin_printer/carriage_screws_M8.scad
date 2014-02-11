@@ -1,5 +1,5 @@
-include <resina_carriage.scad>
-include <carriage_tapa.scad>
+include <resina_carriage_M8.scad>
+include <carriage_tapa_M8.scad>
 
 module arista(){
   translate([20/2-4/2,21.5,65/2])cube([4,4,65],center=true);
