@@ -19,7 +19,14 @@ module tapas(){
 }
 
 module endstop(){ 
-  translate([-20/2-9/2,24.75-2.5+16,65/2])cube([10,7,65],center=true);
+  difference(){
+    mirror([0,1,0])translate([0,-70+12-1,0])tapa();
+    union(){
+    	translate([-20/2-9/2+3,24.75-1.5+7,65/2])cube([10,8,65],center=true);
+	translate([-20/2-9/2+3,24.75-1.5+7,65/2])cube([23,20,65],center=true);
+      translate([0,30,0])cylinder(r=7.5,h=100);
+    }
+  }
 }
 
 difference(){
@@ -35,7 +42,7 @@ difference(){
     
     tapas();
     mirror([0,1,0])tapas();
-    translate([0,-15,20])endstop();
+    translate([0,0,20])endstop();
 
 
     // Fixing crew holes
