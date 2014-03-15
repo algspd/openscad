@@ -23,8 +23,8 @@ union(){
   translate([20,-25,0])cube([20,20,10],center=true);
 
   // Agujeros varilas lisas
-  translate([0,30,-10])cylinder(r=4.3,h=150);
-  translate([0,-30,-10])cylinder(r=4.3,h=150);
+  translate([0,30,-10])cylinder(r=4.5,h=150);
+  translate([0,-30,-10])cylinder(r=4.5,h=150);
 
   // hueco perfil
   translate([48/2+10,0,0])cube([20,20,25],center=true);
